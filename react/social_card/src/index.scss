@@ -1,0 +1,140 @@
+p {
+  margin: 0;
+}
+
+.social-card {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  max-width: 600px;
+}
+
+.author-picture {
+  height: 40px;
+}  
+
+.post-header {
+  align-items: center;
+  display: flex;
+
+  .content-right {
+    padding-left: 5px;
+  }
+
+  .author-information {
+    .author-name {
+      cursor: pointer;
+      font-weight: bold;
+      padding-right: 5px;
+    }
+
+    .author-occupation {
+      color: #7a7c7a;
+      padding-right: 10px;
+    }
+
+    .post-date {
+      color: #383838;
+
+      &::before {
+        content: ".";
+        display: table-cell;
+        padding-right: 3px;
+        vertical-align: middle;
+      } 
+    }
+  }
+
+  .message-header {
+    p {
+      margin-top: 5px;
+    }
+  }
+}
+
+.post-body {
+  cursor: pointer;
+  padding-left: 40px;
+  padding-top: 5px;
+
+  .post-base,
+  .post-sub-info {
+    border: 1px solid #bdbdbd;
+  }
+
+  .post-base {
+    background-color: rgb(37.3%, 65.5%, 46.7%);
+    border-radius: 5px 5px 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 250px;
+    position: relative;
+    text-align: center;
+
+    img {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      background: #FFF;
+      padding: 5px;
+    }
+  }
+
+  .post-sub-info {
+    border-top: none;
+    border-radius: 5px;
+    display: block;
+    padding: 10px;
+
+
+    h2 {
+      font-size: 17px;
+      margin: 0;
+    }
+
+    p {
+      font-size: 15px;
+      padding-top: 5px;
+    }
+
+    .post-origin-url {
+      color: #858585;
+      padding-top: 5px;
+      font-size: 12px;
+    }
+  }
+}
+
+.post-actions {
+  display: flex;
+  padding-left: 40px;
+  padding-top: 10px;
+
+  .heart,
+  .comment,
+  .share {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    cursor: pointer;
+    display: block;
+    height: 20px;
+    width: 20px;
+    margin-right: 30px;
+  }
+
+  .heart {
+    background-image: url("./images/heart.png");
+
+    &.active {
+      background-image: url("./images/heartactive.png");
+    }
+  }
+
+  .comment {
+    background-image: url("./images/comment.png");
+  }
+
+  .share {
+    background-image: url("./images/share.png");
+  }
+}
