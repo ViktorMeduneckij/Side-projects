@@ -6,4 +6,4 @@ Simple couple hours mini project. Includes introduction into components creation
 <a href="https://imgur.com/tKQVqiw"><img src="https://i.imgur.com/tKQVqiw.gif" title="source: imgur.com" /></a>
 
 ##
-run npm install to install necessary modules. run npm start to run application on localhost, port 3000
+run `npm install` to install necessary modules. run `npm start` to run application on `localhost`, port `3000`.
