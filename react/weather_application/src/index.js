@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 
 // Components import statements
-import CityForm from './components/CityForm.jsx';
+import App from './components/App.jsx';
 
 ReactDOM.render(
-  <CityForm />,
+  <App />,
   document.getElementById('root')
 );
