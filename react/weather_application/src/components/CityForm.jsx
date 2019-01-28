@@ -22,7 +22,7 @@ class CityForm extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log(this.state.city + this.state.countryCode);
+    this.props.onSubmit(this.state.city, this.state.countryCode);
     event.preventDefault();
   }
 
