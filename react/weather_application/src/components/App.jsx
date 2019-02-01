@@ -1,8 +1,8 @@
 import React from 'react';
 
 // Components import statements
-import CityForm from './CityForm.jsx';
-import Calendar from './Calendar.jsx';
+import CityForm from './forms/CityForm.jsx';
+import Calendar from './calendarComponents/Calendar.jsx';
 
 class App extends React.Component {
   constructor(props) {
