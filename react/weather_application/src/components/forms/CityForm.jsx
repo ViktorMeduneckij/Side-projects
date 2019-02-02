@@ -29,9 +29,9 @@ class CityForm extends React.Component {
   render () {
     return (
       <form className="city-form" onSubmit={this.handleSubmit.bind(this)}>
-        <input type="text" value={this.state.city} placeholder="Enter a city name" onChange={this.handleChangeCity.bind(this)} />
-        <input type="text" value={this.state.countryCode} placeholder="Enter a country code" onChange={this.handleChangeCountry.bind(this)} />
-        <input type="submit" value="Submit" />
+        <input type="text" className="city-form city" value={this.state.city} placeholder="City name" onChange={this.handleChangeCity.bind(this)} />
+        <input type="text" className="city-form country" value={this.state.countryCode} placeholder="Country code" onChange={this.handleChangeCountry.bind(this)} />
+        <input type="submit" className="submit btn" value="Go" />
       </form>
     );
   }

@@ -1,4 +1,78 @@
+@import './mixin/mixin.scss';
+
+.city-form {
+  text-align: center;
+
+  &.city,
+  &.country,
+  .submit {
+    @include placeHolderPrefix();
+    padding: 10px;
+    text-align: center;
+  }
+
+  &.city {
+    text-transform: capitalize;
+    margin-right: 20px
+  }
+
+  &.country {
+    text-transform: uppercase;
+    margin-right: 20px;
+  }
+}
+
+.calendar-header {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.calendar-component {
+  @include flexPrefixes();
+  @include justifyContentCenterPrefixes();
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
 .weather-node {
-  padding: 20px;
-  border: 1px solid green;
+  border: 1px solid;
+  margin-right: 20px;
+  padding: 10px 20px;
+  text-align: center;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  img {
+    height: 40px;
+    width: 40px;
+  }
+
+  .w-description {
+    font-size: 14px;
+  }
+
+  .temp,
+  .min-temp {
+    display: inline-block;
+    padding: 5px;
+
+    &::after {
+      background-image: url('./images/celsius.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: "";
+      display: inline-block;
+      height: 20px;
+      vertical-align: bottom;
+      width: 20px;
+    }
+  }
+
+  .min-temp {
+    color: #8d8d8d;
+  }
 }

@@ -4,7 +4,7 @@ class WeatherType extends React.Component {
 
   render() {
     return !!this.props.weatherType.length && (
-      <div>
+      <div className="w-type">
         { this.props.weatherType }
       </div>
     );

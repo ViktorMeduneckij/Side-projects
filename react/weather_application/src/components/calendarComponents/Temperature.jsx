@@ -10,7 +10,7 @@ class Temperature extends React.Component {
   
   render() {
     return !!this.props.temp && (
-      <div>
+      <div className="temp">
         { Math.round(this.kelvinToCelsius(this.props.temp)) }
       </div>
     );

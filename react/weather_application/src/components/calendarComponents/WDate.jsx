@@ -11,7 +11,7 @@ class WDate extends React.Component {
 
   render() {
     return !!this.props.date && (
-      <div>
+      <div className="w-date">
         { this.getWeekday(this.props.date) }
       </div>
     );
