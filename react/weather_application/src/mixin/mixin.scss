@@ -1,0 +1,27 @@
+@mixin placeHolderPrefix() {
+  &::-webkit-input-placeholder {
+    text-transform: none;
+  }
+  &:-moz-placeholder { 
+      text-transform: none;
+  }
+  &::-moz-placeholder { 
+      text-transform: none;
+  }
+  &:-ms-input-placeholder { 
+      text-transform: none;
+  }
+  &::placeholder { 
+      text-transform: none;
+  }
+}
+
+@mixin flexPrefixes() {
+  display: -webkit-box;
+  display: -ms-flexbox;
+}
+
+@mixin justifyContentCenterPrefixes() {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+}

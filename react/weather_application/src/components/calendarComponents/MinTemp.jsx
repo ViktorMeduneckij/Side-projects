@@ -10,7 +10,7 @@ class MinTemp extends React.Component {
 
   render() {
     return !!this.props.minTemp && (
-      <div>
+      <div className="min-temp">
         { Math.round(this.kelvinToCelsius(this.props.minTemp)) }
       </div>
     );
