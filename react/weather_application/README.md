@@ -13,3 +13,5 @@ run `npm install` to install necessary modules. run `npm start` to run applicati
  - moment
  - node-sass
  - npm-watch
+ 
+ <a href="https://imgur.com/pFqNEjF"><img src="https://i.imgur.com/pFqNEjF.gif" title="source: imgur.com" /></a>
