@@ -30,6 +30,9 @@ class Calendar extends React.Component {
         return response.json()
       })
       .then((data) => {
+        if (!data) {
+          return;
+        }
         var days = data.list.filter(function(value, index, Arr){
           return index % 8 === 0;
         });
@@ -40,7 +43,7 @@ class Calendar extends React.Component {
   }
 
   renderDay() {
-    return !!this.props.city.length && !!this.props.countryCode.length &&
+    return !!this.state.days &&
     this.state.days.map((day) => ( 
       <Day 
         key={ day.dt }  
@@ -55,7 +58,7 @@ class Calendar extends React.Component {
   }
 
   render() {
-    return (
+    return !!this.state.days.length && (
       <div className="calendar-parent">
         <CalendarHeader city={ this.props.city } country={ this.props.countryCode } />
         <div className="calendar-component">
