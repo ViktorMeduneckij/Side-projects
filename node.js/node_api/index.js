@@ -8,6 +8,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //Routes
 require('./routes/event.js')(app);
+require('./routes/home.js')(app);
+
+
 
 //Additional libraries.
 app.get('/datepickerjs', function(req, res) {
