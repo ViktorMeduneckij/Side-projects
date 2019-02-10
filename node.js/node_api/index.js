@@ -10,8 +10,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 require('./routes/event.js')(app);
 require('./routes/home.js')(app);
 
-
-
 //Additional libraries.
 app.get('/datepickerjs', function(req, res) {
   res.sendFile(__dirname + '/node_modules/js-datepicker/dist/datepicker.min.js');

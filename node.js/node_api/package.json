@@ -13,14 +13,10 @@
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "express-validator": "^5.3.1",
     "js-datepicker": "^4.0.10",
     "mongodb": "^3.1.13",
     "mongoose": "^5.4.9",
     "mongoose-error-helper": "0.0.2",
-    "mongoose-validator": "^2.1.0",
-    "pickerjs": "^1.2.0",
-    "timepicker": "^1.11.14",
-    "tiny-date-picker": "^3.2.8"
+    "timepicker": "^1.11.14"
   }
 }
