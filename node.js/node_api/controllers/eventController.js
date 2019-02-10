@@ -1,5 +1,7 @@
 var bodyParser = require('body-parser');
 var eventModel = require('../models/event.js');
+var errorHelper = require('mongoose-error-helper').errorHelper;
+
 
 //Helper function to retreive all events.
 module.exports.getAllEvents = function retreiveEvents(req, res) {
@@ -16,8 +18,8 @@ module.exports.createEventForm = function(req, res) {
 };
 
 //Helper function to handle event form submit.
-module.exports.submitEventForm = function(req, res) {
-  console.log(req.body.date);
+module.exports.submitEventForm = function(req, res, next) {
+
   const event = new eventModel.event({
     title: req.body.title,
     date: req.body.date,
@@ -29,11 +31,11 @@ module.exports.submitEventForm = function(req, res) {
     distance: req.body.distance
   });
 
-  event.save(function(err, data) {
+  event.save(function(err) {
     if (err) {
-      res.render('status/fail');
+      res.render('forms/create_event_form', {errors: errorHelper(err, next)});
     } else {
       res.render('status/success');
     }
-  }); 
+  });
 };
