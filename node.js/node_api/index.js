@@ -1,16 +1,22 @@
 var express = require('express');
 var app = express();
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+var mongoose = require('./db/mongoose_con.js');
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var mongoose = require('./db/mongoose_con.js');
-var eventRoute = require('./routes/event.js');
+//Routes
+require('./routes/event.js')(app);
 
-//Handle routes.
-app.get('/api/v.1.0/events', eventRoute.getAllEvents)
-app.get('/create-event', eventRoute.createEventForm);
-app.post('/submit-create-event', eventRoute.submitEventForm)
+
+//Additional libraries.
+app.get('/datepickerjs', function(req, res) {
+  res.sendFile(__dirname + '/node_modules/js-datepicker/dist/datepicker.min.js');
+});
+
+app.get('/datepickercss', function(req, res) {
+  res.sendFile(__dirname + '/node_modules/js-datepicker/dist/datepicker.min.css');
+});
 
 app.listen(3000);

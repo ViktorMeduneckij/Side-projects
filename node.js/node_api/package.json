@@ -13,7 +13,11 @@
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "js-datepicker": "^4.0.10",
     "mongodb": "^3.1.13",
     "mongoose": "^5.4.9"
+  },
+  "devDependencies": {
+    "tiny-date-picker": "^3.2.8"
   }
 }
