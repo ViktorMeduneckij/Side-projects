@@ -1,0 +1,36 @@
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  .bunchride {
+    &-logo {
+      background-image: url('../images/logo.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      height: 70px;
+      width: 100px;
+    }
+
+    &-title {
+      margin-left: auto;
+    }
+    
+    &-login {
+      margin-left: auto;
+
+      .wrapper {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+      }
+    }
+  }
+}
