@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Header from './components/PageComponents/Header.jsx';
+import App from './components/App/App.jsx';
 import './scss/_main.scss';
 
+
 ReactDOM.render(
-  <Header />,
+  <App />,
   document.getElementById('root')
 );
