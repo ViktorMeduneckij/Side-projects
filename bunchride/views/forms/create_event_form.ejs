@@ -1,9 +1,8 @@
 <head>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="/datepickerjs"></script>
-  <script src="/timepickerjs"></script>
-  <link rel="stylesheet" type="text/css" href="/datepickercss">
-  <link rel="stylesheet" type="text/css" href="/timepickercss">
+  <script src="/airpickerjs"></script>
+  <script src="/airpickerlanguagejs"></script>
+  <link rel="stylesheet" type="text/css" href="/airpickercss">
 </head>
 
 <h1>Create a new event</h1>
@@ -15,7 +14,8 @@
 
 <form method="POST" action="/submit-create-event" id="create-event">
   <input type="text" class="title" name="title" placeholder="title">
-  <input type="text" class="date" autocomplete="off" name="date" placeholder="date">
+  <input type="text" class="datepicker-here" data-timepicker="true" data-language='en' autocomplete="off" name="start" placeholder="start date">
+  <input type="text" class="datepicker-here" data-timepicker="true" data-language='en' autocomplete="off" name="end" placeholder="end date">
   <select class="type" name="type">
     <option value="road">Road</option>
     <option value="mtb">MTB</option>
@@ -26,13 +26,8 @@
       <option value="advanced">Advanced</option>
       <option value="pro">Pro</option>
   </select>
-  <input type="text" class="start-time timepicker" autocomplete="off" data-time-format="H:i" name="startTime" placeholder="start time">
   <input type="text" class="start_location" name="startLocation" placeholder="start location">
   <input type="text" class="distance" name="distance" placeholder="distance">
   <input type="submit" class="create-event-submit">
 </form>
 
-<script>
-    const datePicker = datepicker('.date');
-    $('.start-time').timepicker();
-</script>

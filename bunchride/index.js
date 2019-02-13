@@ -11,17 +11,14 @@ require('./routes/event.js')(app);
 require('./routes/home.js')(app);
 
 //Additional libraries.
-app.get('/datepickerjs', function(req, res) {
-  res.sendFile(__dirname + '/node_modules/js-datepicker/dist/datepicker.min.js');
+app.get('/airpickerjs', function(req, res) {
+  res.sendFile(__dirname + '/node_modules/air-datepicker/dist/js/datepicker.min.js');
 });
-app.get('/datepickercss', function(req, res) {
-  res.sendFile(__dirname + '/node_modules/js-datepicker/dist/datepicker.min.css');
+app.get('/airpickerlanguagejs', function(req, res) {
+  res.sendFile(__dirname + '/node_modules/air-datepicker/dist/js/i18n/datepicker.en.js');
 });
-app.get('/timepickerjs', function(req, res) {
-  res.sendFile(__dirname + '/node_modules/timepicker/dist/jquery.timepicker.min.js');
-});
-app.get('/timepickercss', function(req, res) {
-  res.sendFile(__dirname + '/node_modules/timepicker/dist/jquery.timepicker.css');
+app.get('/airpickercss', function(req, res) {
+  res.sendFile(__dirname + '/node_modules/air-datepicker/dist/css/datepicker.min.css');
 });
 
 app.listen(3001);

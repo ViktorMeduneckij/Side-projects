@@ -22,7 +22,9 @@ module.exports.submitEventForm = function(req, res, next) {
 
   const event = new eventModel.event({
     title: req.body.title,
-    date: req.body.date,
+    start: req.body.start,
+    end: req.body.end,
+    allDay: false,
     type: req.body.type,
     city: req.body.city,
     level: req.body.level,
