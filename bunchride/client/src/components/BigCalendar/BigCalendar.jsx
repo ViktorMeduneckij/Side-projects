@@ -4,6 +4,7 @@ import moment from 'moment';
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
+
 class Calendar extends React.Component {
   constructor(props) {
     super(props);

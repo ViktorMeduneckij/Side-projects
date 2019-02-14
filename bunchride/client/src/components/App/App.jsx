@@ -1,15 +1,30 @@
 import React from 'react';
-import Header from '../PageComponents/Header.jsx';
-import Body from '../PageComponents/Body.jsx';
+import Main from '../PageComponents/Main';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
 
 class App extends React.Component {
 
   render() {
     return(
-      <div className="main-wrapper">
-        <Header />
-        <Body />
-      </div>
+      <Router>
+        <div>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+          </ul>
+
+          <hr/>
+
+          <Route exact path="/" component={Main}/>
+        </div>
+      </Router>
+
+
+
+      
     );
   }
 }
