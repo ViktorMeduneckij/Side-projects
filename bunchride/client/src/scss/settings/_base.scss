@@ -1,3 +1,10 @@
+@import '../settings/colors';
+
 body {
+  font-family: 'Kreon', serif;
   margin: 0;
+}
+
+.morewatts {
+  color: $mw-orange;
 }

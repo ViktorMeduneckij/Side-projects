@@ -1,5 +1,9 @@
 import React from 'react';
 import Main from '../PageComponents/Main';
+import EventNode from '../Event/EventNode';
+import Header from '../PageComponents/Header';
+import Footer from '../PageComponents/Footer';
+
 import {
   BrowserRouter as Router,
   Route,
@@ -12,19 +16,12 @@ class App extends React.Component {
     return(
       <Router>
         <div>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-          </ul>
-
-          <hr/>
-
+          <Header />
           <Route exact path="/" component={Main}/>
+          <Route exact path="/event/:eventId" component={EventNode}/>
+          <Footer/>
         </div>
       </Router>
-
-
-
-      
     );
   }
 }
