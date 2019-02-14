@@ -1,16 +1,19 @@
 import React from 'react';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
+import { Redirect } from 'react-router';
 
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-
 
 class Calendar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       'events': [],
+      'redirect': false,
+      'selectedEventId' : '',
     }
+    this.handleEventClick = this.handleEventClick.bind(this);
   }
 
   componentDidMount() {
@@ -45,21 +48,33 @@ class Calendar extends React.Component {
     });
   }
 
+  handleEventClick(event) {
+    this.setState({
+      'redirect': true,
+      'selectedEventId': event._id,
+    });
+  }
+
   render() {
     const localizer = BigCalendar.momentLocalizer(moment);
+    if (this.state.redirect) {
+      return <Redirect to = {{
+        pathname: '/event/' + this.state.selectedEventId, 
+        selectedEventId: this.state.selectedEventId, 
+      }}/>;
+    }
     return(
       <div className="big-calendar">
         <BigCalendar
-          localizer={ localizer }
-          events={ this.state.events }
+          localizer = { localizer }
+          events = { this.state.events }
           view ='week'
-          views={['week']}
+          views = {['week']}
+          onSelectEvent = { this.handleEventClick }
         />
       </div>
     )
   }
-
 }
 
 export default Calendar;
-

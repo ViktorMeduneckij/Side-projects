@@ -1,5 +1,5 @@
 import React from 'react';
-import Calendar from '../BigCalendar/BigCalendar.jsx';
+import Calendar from '../BigCalendar/BigCalendar';
 
 class Body extends React.Component {
 
