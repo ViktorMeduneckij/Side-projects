@@ -1,3 +1,24 @@
 .big-calendar {
+  font-family: 'Roboto Slab', serif;
   padding: 0 50px 50px;
+
+  .rbc-toolbar-label {
+    font-size: 25px;
+    letter-spacing: 1px;
+  }
+
+  .rbc-event {
+    background: $mw-orange;
+    border: 1px solid black;
+    border-radius: 3px;
+    color: $mw-black;
+
+    &-content {
+      letter-spacing: 1px;
+    }
+  }
+
+  .rbc-today {
+    background-color: $mw-orange-light;
+  }
 }

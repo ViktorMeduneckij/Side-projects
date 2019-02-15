@@ -19,7 +19,6 @@ module.exports.createEventForm = function(req, res) {
 
 //Helper function to handle event form submit.
 module.exports.submitEventForm = function(req, res, next) {
-
   const event = new eventModel.event({
     title: req.body.title,
     start: req.body.start,
@@ -30,7 +29,8 @@ module.exports.submitEventForm = function(req, res, next) {
     level: req.body.level,
     start_time: req.body.startTime,
     start_location: req.body.startLocation,
-    distance: req.body.distance
+    distance: req.body.distance,
+    subscribers: 0
   });
 
   event.save(function(err) {
@@ -41,3 +41,11 @@ module.exports.submitEventForm = function(req, res, next) {
     }
   });
 };
+
+module.exports.getEvent = function(req, res) {
+  eventModel.event.findById(req.params.id, function(err, event){
+    if (err) return console.log(err);
+
+    res.send(event);
+  });
+} 
