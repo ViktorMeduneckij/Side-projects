@@ -12,8 +12,8 @@ class Footer extends React.Component {
           <p className="developer">Developed by Viktor Meduneckij</p>
         </div>
         <div className="footer-right social">
-          <a href="https://www.facebook.com/morewatts/" className="facebook"></a>
-          <a href="https://www.instagram.com/morewatts/" className="instagram"></a>
+          <a href="https://www.facebook.com/morewatts/" className="facebook">.</a>
+          <a href="https://www.instagram.com/morewatts/" className="instagram">.</a>
         </div>
       </footer>
     );

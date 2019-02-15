@@ -1,8 +1,12 @@
 footer {
   align-items: center;
-  box-shadow: 0 3px 20px rgba(0, 0, 0, 0.25);
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  background: $mw-grey;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-
 
   > div {
     text-align: center;
@@ -12,11 +16,16 @@ footer {
   .developer {
     color: #8d8d8d;
     font-size: 14px;
+    letter-spacing: 1px
   }
 
   .social {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     align-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     justify-content: center;
 
     .instagram,

@@ -2,7 +2,8 @@
 
 .main-header {
   align-items: center;
-  box-shadow: 0 3px 20px rgba(0,0,0,.25);
+  background: $mw-black;
+  box-shadow: 0 3px 20px rgba(253, 183, 19, 0.75);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13,24 +14,38 @@
 
   .bunchride {
     &-logo {
+      color: $mw-orange;
       font-size: 30px;
       font-weight: 500;
 
       p {
         display: inline-block;
-        padding-left: 10px;
         font-size: 18px;
+        letter-spacing: 2px;
+        padding-left: 10px;
       }
     }
 
     &-navigation {
       margin-left: auto;
 
+      .main-navigation {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+      }
+
       ul {
         list-style: none
       }
 
+      li:not(:last-of-type) {
+        margin-right: 15px;
+      }
+
       a {
+        color: $mw-white;
+        letter-spacing: 1px;
         text-decoration: none;
         &:hover {
           color: $mw-orange;
