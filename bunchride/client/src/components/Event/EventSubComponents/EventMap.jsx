@@ -39,7 +39,7 @@ class EventMap extends React.Component {
   renderMap() {
     var position = [this.state.lat, this.state.lng];
     return (
-      <Map center={position} zoom={16} width={600} height={400}>
+      <Map center={position} zoom={16} width={500} height={300}>
         <Marker anchor={position} payload={1} onClick={({ event, anchor, payload }) => {}} />
       </Map>
     )

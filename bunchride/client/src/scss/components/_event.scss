@@ -1,4 +1,18 @@
 .event-wrapper {
+  display: flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+
+  .content-right {
+    margin-left: 30px;
+  }
+
   .event-distance,
   .event-type,
   .session-start-time,
@@ -66,8 +80,59 @@
   }
 
   .session-location {
+    padding-bottom: 10px;
+
     .location-icon {
       background-image: url('../images/icons/location.svg');
+    }
+  }
+
+  .subscribers-wrapper {
+    font-family: 'Roboto slab', serif;
+
+    .subscriber-action,
+    .subscriber-action-wrapper {
+      display: flex;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+
+      &-wrapper {
+        cursor: pointer;
+      }
+
+      p {
+        font-size: 18px;
+      }
+
+      .subscribers-count {
+        margin-left: auto;
+      }
+    }
+
+    .subscriber-action {
+      padding-bottom: 15px;
+
+      &:hover {
+        color: $mw-orange;
+      }
+    }
+
+    .subscribers-list-wrapper {
+      display: block;
+      font-size: 14px;
+    }
+
+    .subscribers-list {
+      margin: 0;
+      padding-left: 30px;
+    }
+
+    .subscribers-icon {
+      background-image: url('../images/icons/add-group.svg');
+      margin-right: 10px;
     }
   }
 

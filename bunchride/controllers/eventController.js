@@ -30,7 +30,7 @@ module.exports.submitEventForm = function(req, res, next) {
     start_time: req.body.startTime,
     start_location: req.body.startLocation,
     distance: req.body.distance,
-    subscribers: 0
+    subscribers: [],
   });
 
   event.save(function(err) {
@@ -49,3 +49,42 @@ module.exports.getEvent = function(req, res) {
     res.send(event);
   });
 } 
+
+module.exports.subscribeEvent = function(req, res, exists) {
+  var subExists = exists;
+  if (!subExists) {
+    console.log('vapse nelaukiu bbd');
+    eventModel.event.findByIdAndUpdate(
+      req.params.id,
+      {$push: {"subscribers": {name: req.params.name }}},
+      {safe: true, upsert: true, new : true},
+      function(err, model) {
+          console.log(err);
+      })
+    }
+  else {
+    console.log('remove');
+    eventModel.event.findByIdAndUpdate(
+      req.params.id,
+      {$pull: {"subscribers": {name: req.params.name }}},
+      function(err, model) {
+        console.log(err);
+    })
+  }
+}
+
+checkIfSubscriberExists = function(req, res) {
+  var exists = false;
+  eventModel.event.findById(req.params.id, function(err, result) {
+    for (var i = 0; i < result.subscribers.length; i++) {
+      if (result.subscribers[i].name == req.params.name) {
+        console.log('baigiau helpinu');
+        exists = true;
+      }
+      else {
+        console.log('baigiau helpinu neegzistuoja');
+        exists = false;
+      } 
+    }
+  }, subscribeEvent(req, res, exists));
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import FacebookLogin from 'react-facebook-login';
-import LoggedInUser from '../User/LoggedInUser.jsx';
+import LoggedInUser from '../User/LoggedInUser';
+import Cookies from 'universal-cookie';
 
 class Facebook extends React.Component {
   constructor(props) {
@@ -14,6 +15,8 @@ class Facebook extends React.Component {
   }
   
   responseFacebook = response => {
+    const cookies = new Cookies();
+
     if (!response) {
       console.log('dead');
       return;
@@ -24,6 +27,8 @@ class Facebook extends React.Component {
       email: response.email,
       picture: response.picture.data.url
     })
+
+    cookies.set('name', response.name, { path: '/' });
   }
   
   render() {
