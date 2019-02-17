@@ -5,12 +5,16 @@ class Title extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      'title': '',
       'date': '',
     }
   }
 
   componentDidMount() {
-    this.convertToTitleDate(this.props.date)
+    this.convertToTitleDate(this.props.date);
+    this.setState({
+      'title': this.props.title
+    })
   }
 
   convertToTitleDate(date) {
@@ -23,7 +27,7 @@ class Title extends React.Component {
   render() {
     return (
       <div className="event-title-wrapper">
-        <h1> { this.props.title } </h1>
+        <h1> { this.state.title } </h1>
         <div className="event-title-date"> { this.state.date } </div>
       </div>
     );
