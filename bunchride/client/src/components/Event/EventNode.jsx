@@ -57,14 +57,13 @@ class EventNode extends React.Component {
           />
           <Location location = { this.state.event.start_location }/>
           <EventMap location = { this.state.event.start_location }/>
-          <Subscribers 
-          subscribers = { this.state.event.subscribers } 
-          eventId = { this.state.event._id }
-          />
         </div>
         <div className="content-right">
-          
-        </div>
+          <Subscribers
+            subscribers = { this.state.event.subscribers } 
+            eventId = { this.state.event._id }
+            />
+          </div>
       </div>
     );
   }

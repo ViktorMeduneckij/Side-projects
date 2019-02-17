@@ -17,7 +17,7 @@ var eventSchema = new Schema({
     validator : Number.isInteger,
     message   : 'distance is not a number value'
   }},
-  subscribers: Number
+  subscribers: { type: Array }
 
 });
 
