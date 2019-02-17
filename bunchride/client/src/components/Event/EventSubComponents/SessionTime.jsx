@@ -10,24 +10,30 @@ class SessionTime extends React.Component {
     }
   }
 
-  componentDidMount() { 
+  componentWillMount() { 
     this.convertToTime(this.props.start, this.props.end)
   }
 
   convertToTime(start, end) {
-    var startTime = moment(start).format('HH:m')
-    var endTime = moment(end).format('HH:m')
+    var startTime = moment(start).format('LT')
+    var endTime = moment(end).format('LT')
     this.setState({
       startTime,
-      endTime,
+      endTime
     });
   }
 
   render() {
     return (
       <div className="session-time-wrapper">
-        <div className="session-start-time"> { this.state.startTime } </div>
-        <div className="session-end-time"> { this.state.endTime } </div>
+        <div className="session-start-time">  
+          <span className="start-icon icon"></span>
+          <p> { this.state.startTime } </p>
+        </div>
+        <div className="session-end-time"> 
+          <span className="end-icon icon"></span>
+          <p> { this.state.endTime } </p>
+        </div>
       </div>
     );
   }

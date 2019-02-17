@@ -38,7 +38,7 @@ class Subscribers extends React.Component {
   render() {
     return(
       <div className="subscribers-wrapper" onClick= { this.triggerSubscribtion }>
-        <span className="subscribers-icon"></span>
+        <span className="subscribers-icon icon"></span>
         <span className="subscribers-count"> { this.state.subscribersCount } </span>
       </div>
     );

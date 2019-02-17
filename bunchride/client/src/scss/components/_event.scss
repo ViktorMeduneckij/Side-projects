@@ -1,0 +1,87 @@
+.event-wrapper {
+  .event-distance,
+  .event-type,
+  .session-start-time,
+  .session-end-time,
+  .session-location {
+    display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+
+
+  .event-title {
+    &-wrapper {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      border-bottom: 2px dashed $mw-orange;
+      margin-bottom: 15px;
+      padding-bottom: 5px;
+    }
+    
+    &-date {
+      padding-left: 30px;
+    }
+  }
+
+  .session-info-wrapper,
+  .session-time-wrapper {
+    color: $mw-grey;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 7px;
+
+    .event-distance,
+    .session-start-time {
+      padding-right: 30px;
+    }
+  }
+
+  .session-info-wrapper {
+    .distance-icon {
+      background-image: url('../images/icons/distance.svg');
+    }
+
+    .type-icon {
+      background-image: url('../images/icons/type.svg');
+    }
+  }
+
+  .session-time-wrapper {
+    .start-icon {
+      background-image: url('../images/icons/start.svg');
+    }
+
+    .end-icon {
+      background-image: url('../images/icons/finish.svg');
+    }
+  }
+
+  .session-location {
+    .location-icon {
+      background-image: url('../images/icons/location.svg');
+    }
+  }
+
+  .icon {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: inline-block;
+    height: 25px;
+    margin-right: 5px;
+    width: 25px;
+  }
+
+  p {
+    margin: 0;
+  }
+}
