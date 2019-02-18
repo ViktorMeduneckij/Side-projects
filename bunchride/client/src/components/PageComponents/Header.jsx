@@ -8,10 +8,12 @@ class Header extends React.Component {
   render() {
     return(
       <div className="main-header">
-        <span className="bunchride-logo">
-          MoreWatts.com
-          <p>bunchride</p>
-        </span>
+        <Link className="home" to="/">
+          <span className="bunchride-logo">
+            MoreWatts.com
+            <p>bunchride</p>
+          </span>
+        </Link>
         <span className="bunchride-navigation">
           <ul className="main-navigation">
             <li><Link to="/">Calendar</Link></li>

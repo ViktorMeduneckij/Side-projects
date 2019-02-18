@@ -42,12 +42,20 @@ footer {
     }
 
     .facebook {
-      background-image: url('../images/icons/facebook.png');
+      background-image: url('../images/icons/facebook-logo.svg');
       margin-right: 10px;
+      
+      &:hover {
+        background-image: url('../images/icons/facebook-orange.svg');
+      }
     }
 
     .instagram {
       background-image: url('../images/icons/instagram.png');
+
+      &:hover {
+        background-image: url('../images/icons/instagram-orange.svg');
+      }
     }
   }
 }

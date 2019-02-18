@@ -1,0 +1,48 @@
+.form-page {
+  background-image: url("../images/form-background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "Roboto slab", serif; }
+  .form-page .message {
+    background: red;
+    padding: 3px;
+    margin: 0 10px; }
+    .form-page .message:last-of-type {
+      margin-bottom: 10px; }
+  .form-page .form.create-event,
+  .form-page .form.edit-event {
+    background: rgba(253, 183, 19, 0.9);
+    border-radius: 3px;
+    margin: 0 auto;
+    max-width: 600px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px; }
+    .form-page .form.create-event h1,
+    .form-page .form.edit-event h1 {
+      padding-left: 10px; }
+    .form-page .form.create-event form,
+    .form-page .form.edit-event form {
+      padding: 0 10px; }
+    .form-page .form.create-event label,
+    .form-page .form.edit-event label {
+      display: block;
+      margin-bottom: 5px;
+      width: 100%; }
+    .form-page .form.create-event input,
+    .form-page .form.create-event select,
+    .form-page .form.create-event textarea,
+    .form-page .form.edit-event input,
+    .form-page .form.edit-event select,
+    .form-page .form.edit-event textarea {
+      margin-bottom: 10px;
+      padding: 10px;
+      width: 100%; }
+    .form-page .form.create-event input[type="submit"],
+    .form-page .form.edit-event input[type="submit"] {
+      cursor: pointer;
+      background: #000;
+      border: none;
+      color: #FDB713;
+      font-weight: 600;
+      font-size: 20px; }

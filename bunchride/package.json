@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "node-sass -w sass -o public/css"
   },
   "author": "",
   "license": "ISC",
@@ -17,7 +18,8 @@
     "js-datepicker": "^4.0.10",
     "mongodb": "^3.1.13",
     "mongoose": "^5.4.9",
-    "mongoose-error-helper": "0.0.2",
+    "mongoose-error-helper": "syntagma/mongoose-error-helper#master",
+    "node-sass": "^4.11.0",
     "timepicker": "^1.11.14"
   }
 }
