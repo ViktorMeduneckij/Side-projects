@@ -34,6 +34,10 @@ class SessionTime extends React.Component {
           <span className="end-icon icon"></span>
           <p> { this.state.endTime } </p>
         </div>
+        <div className="session-location">  
+          <span className="location-icon icon"></span>
+          <p>{ this.props.location } </p>
+        </div>
       </div>
     );
   }

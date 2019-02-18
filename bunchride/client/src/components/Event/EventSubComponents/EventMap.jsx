@@ -1,7 +1,6 @@
 import React from 'react';
 import Map from 'pigeon-maps';
 import Marker from 'pigeon-marker';
-import Overlay from 'pigeon-overlay';
 
 class EventMap extends React.Component {
   constructor(props) {
@@ -39,7 +38,7 @@ class EventMap extends React.Component {
   renderMap() {
     var position = [this.state.lat, this.state.lng];
     return (
-      <Map center={position} zoom={16} width={500} height={300}>
+      <Map center={position} zoom={16} width={770} height={400}>
         <Marker anchor={position} payload={1} onClick={({ event, anchor, payload }) => {}} />
       </Map>
     )

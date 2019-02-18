@@ -2,6 +2,9 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('./db/mongoose_con.js');
+var path = require('path');
+
+app.use(express.static('public'))
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));

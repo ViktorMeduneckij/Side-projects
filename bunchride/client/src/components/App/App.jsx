@@ -16,7 +16,7 @@ class App extends React.Component {
       <Router>
         <div className="layout-wrapper">
           <Header />
-          <div class="main-content">
+          <div className="main-content">
             <Route exact path="/" component={Main}/>
             <Route exact path="/event/:eventId" component={EventNode}/>
           </div>

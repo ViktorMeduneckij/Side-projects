@@ -27,16 +27,25 @@ module.exports.submitEventForm = function(req, res, next) {
     type: req.body.type,
     city: req.body.city,
     level: req.body.level,
+    speed: req.body.speed,
     start_time: req.body.startTime,
     start_location: req.body.startLocation,
     distance: req.body.distance,
+    generalInfo: req.body.information,
     subscribers: [],
   });
+  console.log(req.body.distance);
+  console.log(event);
 
   event.save(function(err) {
     if (err) {
-      res.render('forms/create_event_form', {errors: errorHelper(err, next)});
-    } else {
+      errorHelper(err, function(errors){
+        res.render('forms/create_event_form', {
+          errors: errors
+        });
+      })
+    }
+    else {
       res.render('status/success');
     }
   });
@@ -50,10 +59,11 @@ module.exports.getEvent = function(req, res) {
   });
 } 
 
-module.exports.subscribeEvent = function(req, res, exists) {
+function subscribeEvent(req, res, exists) {
   var subExists = exists;
+  console.log('subExists value that im working with:', subExists);
   if (!subExists) {
-    console.log('vapse nelaukiu bbd');
+    console.log('I am not waiting for subExists value.');
     eventModel.event.findByIdAndUpdate(
       req.params.id,
       {$push: {"subscribers": {name: req.params.name }}},
@@ -73,18 +83,64 @@ module.exports.subscribeEvent = function(req, res, exists) {
   }
 }
 
-checkIfSubscriberExists = function(req, res) {
-  var exists = false;
-  eventModel.event.findById(req.params.id, function(err, result) {
-    for (var i = 0; i < result.subscribers.length; i++) {
-      if (result.subscribers[i].name == req.params.name) {
-        console.log('baigiau helpinu');
-        exists = true;
+module.exports.checkIfSubscriberExists = function(req, res) {
+  var exists = null;
+  eventModel.event.findById(req.params.id)
+    .then(result => {
+      for (var i = 0; i < result.subscribers.length; i++) {
+        if (result.subscribers[i].name == req.params.name) {
+          console.log('This name exists in subscribers array.');
+          exists = true;
+        }
+        else {
+          console.log('There is no such name in subscribers array');
+          exists = false;
+        } 
       }
-      else {
-        console.log('baigiau helpinu neegzistuoja');
-        exists = false;
-      } 
-    }
-  }, subscribeEvent(req, res, exists));
+    })
+    .then(() => {
+      subscribeEvent(req, res, exists);
+    })
 }
+
+module.exports.updateEvent = function(req, res, next) {
+  eventModel.event.findById(req.params.id, function(err, event){
+    if (err) console.log(err);
+    console.log(event);
+    res.render('forms/edit_event_form', {
+      id: event._id,
+      title: event.title,
+      startDate: event.start,
+      endDate: event.end,
+      type: event.type,
+      city: event.city,
+      level: event.level,
+      speed: event.speed,
+      startLocation: event.start_location,
+      distance: event.distance,
+      generalInfo: event.generalInfo,
+    });
+  });
+}
+
+module.exports.submitEventEditForm = function(req, res, next) {
+  console.log(req.body);
+  eventModel.event.findByIdAndUpdate(req.params.id.trim(), { $set: { 
+    title: req.body.title,
+    start: req.body.start,
+    end: req.body.end,
+    type: req.body.type,
+    city: req.body.city,
+    level: req.body.level,
+    speed: req.body.speed,
+    start_location: req.body.startLocation, 
+    distance: req.body.distance,
+    generalInfo: req.body.information,
+  }}, function(err, event) {
+    if (err) {
+      console.log(err)
+      return;
+    } 
+    res.redirect('http://localhost:3000/event/' + req.params.id.trim());
+  });
+};

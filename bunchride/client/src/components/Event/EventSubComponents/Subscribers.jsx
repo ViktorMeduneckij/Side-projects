@@ -74,7 +74,7 @@ class Subscribers extends React.Component {
         </div>
         <span className="subscribers-list-wrapper">
           <ul className="subscribers-list">
-           { this.renderSubscribers() }
+            { this.renderSubscribers() }
           </ul>
         </span>
       </div>

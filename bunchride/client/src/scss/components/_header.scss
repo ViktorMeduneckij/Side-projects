@@ -12,6 +12,10 @@
   margin-bottom: 30px;
   padding: 10px;
 
+  .home {
+    text-decoration: none;
+  }
+
   .bunchride {
     &-logo {
       color: $mw-orange;

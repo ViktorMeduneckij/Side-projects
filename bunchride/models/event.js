@@ -12,13 +12,11 @@ var eventSchema = new Schema({
     return /^[a-zA-Z\s]*$/.test(value);
   }},
   level: {type: String, required: true },
+  speed: {type: Number, required: true },
   start_location: {type: String, required: true },
-  distance: {type: Number, required: true, validate : {
-    validator : Number.isInteger,
-    message   : 'distance is not a number value'
-  }},
-  subscribers: { type: Array }
-
+  distance: {type: Number, required: true },
+  subscribers: { type: Array },
+  generalInfo: { type: String }
 });
 
 var Event = mongoose.model('Event', eventSchema);

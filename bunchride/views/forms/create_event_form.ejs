@@ -3,31 +3,51 @@
   <script src="/airpickerjs"></script>
   <script src="/airpickerlanguagejs"></script>
   <link rel="stylesheet" type="text/css" href="/airpickercss">
+  <link rel="stylesheet" type="text/css" href="/css/main.css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+
+
 </head>
 
-<h1>Create a new event</h1>
+<body class="form-page">
 
-<% if (typeof errors !== 'undefined') { 
-   errors.forEach(function(err) { %>
-    <div class="message"><%= err %></div>
-<% })} %> 
+  <div class="form create-event wrapper">
+    <h1>Create a new event</h1>
 
-<form method="POST" action="/submit-create-event" id="create-event">
-  <input type="text" class="title" name="title" placeholder="title">
-  <input type="text" class="datepicker-here" data-timepicker="true" data-language='en' autocomplete="off" name="start" placeholder="start date">
-  <input type="text" class="datepicker-here" data-timepicker="true" data-language='en' autocomplete="off" name="end" placeholder="end date">
-  <select class="type" name="type">
-    <option value="road">Road</option>
-    <option value="mtb">MTB</option>
-  </select>
-  <input type="text" class="city" name="city" placeholder="city">
-  <select class="level" name="level">
-      <option value="beginner">Beginner</option>
-      <option value="advanced">Advanced</option>
-      <option value="pro">Pro</option>
-  </select>
-  <input type="text" class="start_location" name="startLocation" placeholder="start location">
-  <input type="text" class="distance" name="distance" placeholder="distance">
-  <input type="submit" class="create-event-submit">
-</form>
+    <% if (typeof errors !== 'undefined') { 
+      errors.forEach(function(err) { %>
+        <div class="message"><%= err %></div>
+    <% })} %> 
 
+    <form method="POST" action="/submit-create-event" id="create-event">
+      <label>Title</label>
+      <input type="text" class="title" name="title" placeholder="Training on the road">
+      <label>Type</label>
+      <select class="type" name="type">
+        <option value="road">Road</option>
+        <option value="mtb">MTB</option>
+      </select>
+      <label>Start date</label>
+      <input type="text" class="datepicker-here" data-timepicker="true" data-language='en' autocomplete="off" name="start" placeholder="Date...">
+      <label>End date</label>
+      <input type="text" class="datepicker-here" data-timepicker="true" data-language='en' autocomplete="off" name="end" placeholder="Date...">
+      <label>City</label>
+      <input type="text" class="city" name="city" placeholder="Kaunas...">
+      <label>Start location</label>
+      <input type="text" class="start_location" name="startLocation" placeholder="Pramonės pr. 8A, Kaunas...">
+      <label>Level</label>
+      <select class="level" name="level">
+          <option value="beginner">Beginner</option>
+          <option value="advanced">Advanced</option>
+          <option value="pro">Pro</option>
+      </select>
+      <label>Distance</label>
+      <input type="text" class="distance" name="distance" placeholder="50">
+      <label>Speed</label>
+      <input type="text" class="speed" name="speed" placeholder="30">
+      <label>General information</label>
+      <textarea style="resize: none;" class="general-info" rows="15" name="information" placeholder="We will be maintaining zone 3, so make sure to have plenty of water..."></textarea>
+      <input type="submit" value="Create" class="create-event-submit">
+    </form>
+  </div>
+</body>
