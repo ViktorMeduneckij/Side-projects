@@ -1,7 +1,5 @@
-var bodyParser = require('body-parser');
 var eventModel = require('../models/event.js');
 var errorHelper = require('mongoose-error-helper').errorHelper;
-
 
 //Helper function to retreive all events.
 module.exports.getAllEvents = function retreiveEvents(req, res) {
@@ -19,23 +17,21 @@ module.exports.createEventForm = function(req, res) {
 
 //Helper function to handle event form submit.
 module.exports.submitEventForm = function(req, res, next) {
+  console.log(req.body);
   const event = new eventModel.event({
     title: req.body.title,
-    start: req.body.start,
-    end: req.body.end,
+    start: req.body.startDate,
+    end: req.body.endDate,
     allDay: false,
     type: req.body.type,
     city: req.body.city,
     level: req.body.level,
     speed: req.body.speed,
-    start_time: req.body.startTime,
     start_location: req.body.startLocation,
     distance: req.body.distance,
-    generalInfo: req.body.information,
+    generalInfo: req.body.generalInfo,
     subscribers: [],
   });
-  console.log(req.body.distance);
-  console.log(event);
 
   event.save(function(err) {
     if (err) {
@@ -106,7 +102,6 @@ module.exports.checkIfSubscriberExists = function(req, res) {
 module.exports.updateEvent = function(req, res, next) {
   eventModel.event.findById(req.params.id, function(err, event){
     if (err) console.log(err);
-    console.log(event);
     res.render('forms/edit_event_form', {
       id: event._id,
       title: event.title,
@@ -124,7 +119,6 @@ module.exports.updateEvent = function(req, res, next) {
 }
 
 module.exports.submitEventEditForm = function(req, res, next) {
-  console.log(req.body);
   eventModel.event.findByIdAndUpdate(req.params.id.trim(), { $set: { 
     title: req.body.title,
     start: req.body.start,
