@@ -1,5 +1,6 @@
 import React from 'react';
-import Facebook from '../Facebook/Facebook.jsx';
+import Facebook from '../Facebook/Facebook';
+
 import {
   Link
 } from 'react-router-dom';
@@ -17,7 +18,7 @@ class Header extends React.Component {
         <span className="bunchride-navigation">
           <ul className="main-navigation">
             <li><Link to="/">Calendar</Link></li>
-            <li><a href="http://localhost:3001/create-event">+ Event</a></li>
+            <li><Link to="/add-event">+ Event</Link></li>
 
           </ul>
         </span>
