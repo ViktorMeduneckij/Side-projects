@@ -9,12 +9,12 @@
     font-family: "Roboto slab", serif;
   }
 
-  .create-event.wrapper {
+  .create-event.wrapper,
+  .edit-event.wrapper {
     background: rgba(253, 183, 19, 0.9);
     border-radius: 3px;
     margin: 0 auto;
     max-width: 600px;
-    margin-bottom: 50px;
     padding: 20px;
   }
 
@@ -23,7 +23,8 @@
     padding: 0 10px;
   }
 
-  form.create-event-form {
+  form.create-event-form,
+  form.edit-event-form {
   
     label,
     input,

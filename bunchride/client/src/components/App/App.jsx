@@ -4,6 +4,7 @@ import EventNode from '../Event/EventNode';
 import Header from '../PageComponents/Header';
 import Footer from '../PageComponents/Footer';
 import EventForm from '../forms/EventForm';
+import EventEditForm from '../forms/EventEditForm';
 
 
 import {
@@ -22,6 +23,7 @@ class App extends React.Component {
             <Route exact path="/" component={Main}/>
             <Route exact path="/event/:eventId" component={EventNode}/>
             <Route exact path="/add-event" component={EventForm}/>
+            <Route exact path="/edit/event/:eventId" component={EventEditForm}/>
           </div>
           <Footer/>
         </div>

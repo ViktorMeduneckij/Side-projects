@@ -4,7 +4,6 @@ import EventEditBtn from './EventSubComponents/EditEventBtn';
 import Title from './EventSubComponents/Title';
 import SessionInfo from './EventSubComponents/SessionInfo';
 import SessionTime from './EventSubComponents/SessionTime';
-import Location from './EventSubComponents/Location';
 import EventMap from './EventSubComponents/EventMap';
 import Subscribers from './EventSubComponents/Subscribers';
 
@@ -21,8 +20,8 @@ class EventNode extends React.Component {
     this.getEvent(this.props.location.selectedEventId);
   }
 
-  getEvent(eventId) {
-    fetch('/api/v.1.0/event/' + eventId, {mode: 'no-cors'})
+  getEvent() {
+    fetch('/api/v.1.0/' + this.props.location.pathname, {mode: 'no-cors'})
       .then(function(response) {
         if(!response.ok) {
           console.log('Failed to get single event.');

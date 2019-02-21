@@ -1,6 +1,6 @@
 import React from 'react';
 import DateTime from 'react-datetime';
-import 'react-datetime/css/react-datetime.css'
+import 'react-datetime/css/react-datetime.css';
 
 class EventForm extends React.Component {
   constructor(props) {
@@ -46,7 +46,6 @@ class EventForm extends React.Component {
   }
 
   handleStartDateChange = (date) => {
-    console.log(date);
     this.setState({
       'startDate': date._d
     });
@@ -59,12 +58,11 @@ class EventForm extends React.Component {
   }
 
   handleSubmit = (e) => { 
-    e.preventDefault() 
+    e.preventDefault();
     this.makeRequest();
   }
 
   makeRequest() {
-    console.log(this.state);
     fetch('/submit-create-event', {
       method: 'POST',
       headers: {
@@ -84,7 +82,11 @@ class EventForm extends React.Component {
         generalInfo: this.state.generalInfo,
       })
     })
-    
+    .then((response) => {
+      if (response.ok) {
+        this.props.history.push('/');
+      }
+    })
   }
 
   render() {
@@ -96,14 +98,12 @@ class EventForm extends React.Component {
           <input type="text" className="title" onChange={this.handleChangeNoValidation} name="title" placeholder="Training on the road"/>
           <label>Type</label>
           <select className="type" name="type" onChange={this.handleChangeNoValidation}>
-            <option value="road">Road</option>
+            <option value="road" selected>Road</option>
             <option value="mtb">MTB</option>
           </select>
           <label>Start date</label>
-          {/* <input type="text" className="datepicker-here" data-timepicker="true" data-language='en' autoComplete="off" name="start" placeholder="Date..." /> */}
-          <DateTime className="start-date-bybis" onChange={this.handleStartDateChange} />
+          <DateTime onChange={this.handleStartDateChange} />
           <label>End date</label>
-          {/* <input type="text" className="datepicker-here" data-timepicker="true" data-language='en' autoComplete="off" name="end" placeholder="Date..." /> */}
           <DateTime onChange={this.handleEndDateChange}/>
           <label>City</label>
           <input type="text" className="city" name="city" onChange={this.handleChangeNoValidation}/>
@@ -111,7 +111,7 @@ class EventForm extends React.Component {
           <input type="text" className="start_location" onChange={this.handleChangeNoValidation} name="startLocation" placeholder="Pramonės pr. 8A, Kaunas..."/>
           <label>Level</label>
           <select className="level" name="level" onChange={this.handleChangeNoValidation}>
-              <option value="beginner">Beginner</option>
+              <option value="beginner" selected>Beginner</option>
               <option value="advanced">Advanced</option>
               <option value="pro">Pro</option>
           </select>
