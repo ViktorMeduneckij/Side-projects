@@ -1,12 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 class EditEventBtn extends React.Component {
   render() {
     return !!this.props.eventId && (
-      <a className="event-edit-btn" href={"http://localhost:3001/api/v.1.0/update/edit-event/" + this.props.eventId }>
-        <span className="edit-event-icon icon"></span>
-        <p>Edit this event</p>
-      </a>
+      <Link to={ "/edit/event/" + this.props.eventId }>
+        <div className="event-edit-btn">
+          <span className="edit-event-icon icon"></span>
+          <p>Edit this event</p>
+        </div>
+      </Link>
     );
   }
 }

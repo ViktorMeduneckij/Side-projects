@@ -35,14 +35,12 @@ module.exports.submitEventForm = function(req, res, next) {
 
   event.save(function(err) {
     if (err) {
-      errorHelper(err, function(errors){
-        res.render('forms/create_event_form', {
-          errors: errors
-        });
-      })
+      console.log(err);
+      res.status(404).send();
+      return;
     }
     else {
-      res.render('status/success');
+      res.send(200);
     }
   });
 };
@@ -119,22 +117,23 @@ module.exports.updateEvent = function(req, res, next) {
 }
 
 module.exports.submitEventEditForm = function(req, res, next) {
+  console.log(req.body);
   eventModel.event.findByIdAndUpdate(req.params.id.trim(), { $set: { 
     title: req.body.title,
-    start: req.body.start,
-    end: req.body.end,
+    start: req.body.startDate,
+    end: req.body.endDate,
     type: req.body.type,
     city: req.body.city,
     level: req.body.level,
     speed: req.body.speed,
     start_location: req.body.startLocation, 
     distance: req.body.distance,
-    generalInfo: req.body.information,
+    generalInfo: req.body.generalInfo,
   }}, function(err, event) {
     if (err) {
-      console.log(err)
+      res.status(404).send();
       return;
     } 
-    res.redirect('http://localhost:3000/event/' + req.params.id.trim());
+    res.send(200);
   });
 };
